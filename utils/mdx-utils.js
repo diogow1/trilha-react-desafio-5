@@ -1,4 +1,4 @@
-import { api } from '../services/api'
+import { api } from '../src/services/api'
 
 export const getPosts = async () => {
     const {data} = await api.get('/posts'); 
@@ -13,7 +13,8 @@ export const getPosts = async () => {
 export const getPostBySlug = async (id) => {
 
     //TODO: BUSCAR UM POST EM ESPECIFICO.
-    //const {data} = await api.get(`/post?id=eq.${id}`)
+    const {data} = await api.get(`/posts?id=eq.${id}`)
 
-    return {}
+    
+    return data[0];
 }
